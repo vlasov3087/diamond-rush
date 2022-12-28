@@ -1,5 +1,5 @@
 .section {
-  margin: 137px 0;
+  padding: 123px 0;
   width: 100%;
   display: flex;
 
@@ -17,7 +17,36 @@
   box-shadow: 0px 0px 30px #63a1ff;
   width: 382px;
   border-radius: 20px;
-  margin-bottom: 176px;
+  margin-top: 176px;
+  &.unfinishedCard {
+    background: #434343;
+    box-shadow: 0px 0px 30px #63a1ff;
+    h4 {
+      color: #959595;
+    }
+    ul {
+      li {
+        color: #959595;
+        div {
+          background: #959595;
+        }
+      }
+    }
+  }
+  .line {
+    content: "";
+    position: absolute;
+    height: 100%;
+    background: #ffffff;
+    z-index: 1;
+    width: 5px;
+    top: 0;
+    left: 245px;
+    &.unfinishedLine {
+      background: #434343;
+    }
+  }
+
   h4 {
     font-family: Syne;
     font-size: 36px;
@@ -60,19 +89,36 @@
 
 .milestoneItem {
   &.firstMilestone {
-    margin-top: 257px;
+    padding-top: 81px;
   }
   display: flex;
   justify-content: space-between;
+  position: relative;
+  .checkCircle {
+    margin-top: 265px;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    z-index: 100;
+    border-radius: 50%;
+    border: 6px solid #ffffff;
+    &.unfinishedCircle {
+      border: 6px solid #434343;
+    }
+  }
   h4.milestoneTitle {
     font-family: "Syne";
     font-style: normal;
     font-weight: 600;
     font-size: 36px;
+    width: 150px;
     line-height: 43px;
     display: flex;
     color: #434343;
-    margin-top: 120px;
+    margin-top: 280px;
     &.completed {
       color: #63a1ff;
       text-shadow: 0px 0px 15px 0px #33a2cc;

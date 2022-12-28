@@ -7,16 +7,11 @@ import Warp from "../warp";
 import { Container, Row, Col } from "react-grid-system";
 gsap.registerPlugin(ScrollTrigger);
 
-const FooterSection: FC<{
-  scrollTo: any;
-  goToSectionRef: any;
-}> = ({ scrollTo, goToSectionRef }) => {
-  const headlineRef: any = useRef();
-  const sectionRef: any = useRef();
+const FooterSection: FC<{}> = () => {
   return (
-    <div className={styles.section} ref={sectionRef}>
+    <div className={styles.section}>
       <Container>
-        <Row ref={headlineRef}>
+        <Row>
           <Col lg={7}>
             <p className={styles.footerText}>
               Subscribe for Diamond Rush insights delivered straight to inbox

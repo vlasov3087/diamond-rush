@@ -8,9 +8,7 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 const GameplaySection: FC<{
-  scrollTo: any;
-  goToSectionRef: any;
-}> = ({ scrollTo, goToSectionRef }) => {
+}> = () => {
   const pagination = {
     clickable: true,
     draggble: true,

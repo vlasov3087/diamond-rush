@@ -7,12 +7,7 @@ import { Container, Row, Col } from "react-grid-system";
 import Milestone from "./milestone";
 gsap.registerPlugin(ScrollTrigger);
 
-const RoadmapSection: FC<{
-  scrollTo: any;
-  goToSectionRef: any;
-}> = ({ scrollTo, goToSectionRef }) => {
-  const headlineRef: any = useRef();
-  const sectionRef: any = useRef();
+const RoadmapSection: FC<{}> = () => {
   const milestones = [
     {
       isFinished: true,
@@ -114,9 +109,9 @@ const RoadmapSection: FC<{
     },
   ];
   return (
-    <div className={styles.section} ref={sectionRef}>
+    <div className={styles.section}>
       <Container>
-        <Row ref={headlineRef}>
+        <Row>
           <Col lg={4}>
             <h2>OUR LUCKY ROADMAP</h2>
           </Col>

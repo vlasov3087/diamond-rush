@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, FC } from "react";
 import Link from "next/link";
 import { useEventListener } from "../../hooks/useEventListener";
 
-const Header: React.FC = () => {
+const Header: FC<{ setActivePage: (num: number) => void }> = ({
+  setActivePage,
+}) => {
   const [navShadow, setShadow] = useState<"navShadow" | "">("");
   const handleScroll = (): void => {
     const windowTop: number = window.scrollY;
@@ -20,33 +22,59 @@ const Header: React.FC = () => {
               src="/images/logo.svg"
               alt="logo"
               onClick={() => {
-                window.scrollTo({
-                  top: 0,
-                  behavior: "smooth",
-                });
+                setActivePage(0);
               }}
             />
           </Link>
           <ul className="nav-items">
             <li>
-              <a href="#home">HOME</a>
+              <a
+                href="#home"
+                onClick={() => {
+                  setActivePage(0);
+                }}
+              >
+                HOME
+              </a>
             </li>
-            <li>
+            <li
+              onClick={() => {
+                setActivePage(1);
+              }}
+            >
               <a href="#video">VIDEO</a>
             </li>
-            <li>
+            <li
+              onClick={() => {
+                setActivePage(2);
+              }}
+            >
               <a href="#about">ABOUT</a>
             </li>
-            <li>
+            <li
+              onClick={() => {
+                setActivePage(3);
+              }}
+            >
               <a href="#gameplay">GAMEPLAY</a>
             </li>
-            <li>
+            <li
+              onClick={() => {
+                setActivePage(4);
+              }}
+            >
               <a href="#about">NFT</a>
             </li>
             <li>
-              <a href="#roadmap">ROADMAP</a>
+              <a
+                href="#roadmap"
+                onClick={() => {
+                  setActivePage(4);
+                }}
+              >
+                ROADMAP
+              </a>
             </li>
-
           </ul>
         </nav>
       </div>

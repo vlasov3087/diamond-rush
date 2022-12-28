@@ -7,10 +7,7 @@ import "swiper/css/pagination";
 // import required modules
 import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-const AboutSection: FC<{
-  scrollTo: any;
-  goToSectionRef: any;
-}> = ({ scrollTo, goToSectionRef }) => {
+const AboutSection: FC<{}> = () => {
   const pagination = {
     clickable: true,
     draggble: true,
@@ -24,12 +21,10 @@ const AboutSection: FC<{
           }</span>`;
     },
   };
-  const headlineRef: any = useRef();
-  const sectionRef: any = useRef();
   return (
-    <div className={styles.section} ref={sectionRef}>
+    <div className={styles.section}>
       <Container>
-        <Row ref={headlineRef}>
+        <Row>
           <Col lg={5} offset={{ lg: 1 }}>
             <Swiper
               pagination={pagination}

@@ -2,13 +2,15 @@
 @import "./fonts.scss";
 @import "../components/header/header.scss";
 $accent-color-blue: #63a1ff;
-body {
-  background-color: #000;
+* {
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
     -ms-overflow-style: none;
   }
+}
+body {
+  background-color: #000;
 }
 h1 {
   font-family: "Syne", sans-serif;
@@ -82,4 +84,28 @@ body {
 
 .paginationNumber {
   margin: 0px 6px;
+}
+
+.swiper-container {
+  height: 100%;
+  width: 100%;
+}
+
+.scroll {
+  width: 3px;
+  transition: all 0.3s ease;
+  background: linear-gradient(125.06deg, #0061ff -2.31%, #60efff 97.12%);
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  &.active {
+    opacity: 1;
+  }
+  &.yellow {
+    background: linear-gradient(125.06deg, #f5b61e -2.31%, #eda943 97.12%);
+  }
+  &.pink {
+    background: linear-gradient(125.06deg, #b01ef5 -2.31%, #ea43ed 97.12%);
+  }
 }

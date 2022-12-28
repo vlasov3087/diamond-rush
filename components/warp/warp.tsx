@@ -1,9 +1,5 @@
 //@ts-nocheck
-import {
-  Canvas,
-  useFrame,
-  useLoader,
-} from "@react-three/fiber";
+import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 import { FC, Suspense, useMemo, useRef } from "react";
 import { BoxGeometry, BufferGeometry, MeshBasicMaterial, Points } from "three";
@@ -19,12 +15,12 @@ const Stars: FC<{ count: number }> = ({ count }) => {
     let i = 0;
 
     while (i < count) {
-      const star: any = new THREE.Vector3(
+      const star = new THREE.Vector3(
         Math.random() * 2000 - 1000,
         Math.random() * 1000 - 500,
         -Math.random() * 1000
       );
-      star.velocity = 0.1;
+      star.velocity = 0.5;
       star.acceleration = 0.002;
       vertices.push(star);
       colors.push(new THREE.Color("#FFFFFF"));
@@ -40,7 +36,12 @@ const Stars: FC<{ count: number }> = ({ count }) => {
       // p.velocity += p.acceleration;
       p.z += p.velocity;
 
-      if (p.z > -300) {
+      if (p.z > -500 && p.x < 250 && p.x > -250 && p.y < 250 && p.y > -250) {
+        p.z = -Math.random() * 1000 - 1000;
+      } else if (
+        p.z > 0 &&
+        (p.x >= 250 || p.x <= -250 || p.y >= 250 || p.y <= -250)
+      ) {
         p.z = -Math.random() * 1000 - 500;
 
         // p.velocity = 0;
@@ -58,7 +59,7 @@ const Stars: FC<{ count: number }> = ({ count }) => {
         <pointsMaterial
           color={"#fff"}
           vertexColors
-          size={3}
+          size={1.5}
           map={starTexture}
         />
       </points>
@@ -69,7 +70,7 @@ const Warp = () => {
   return (
     <Canvas style={{ background: "black" }}>
       <Suspense fallback={null}>
-        <Stars count={1000} />
+        <Stars count={2000} />
       </Suspense>
       {/* <ambientLight /> */}
     </Canvas>
