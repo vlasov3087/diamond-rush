@@ -1,0 +1,81 @@
+.section {
+  margin: 137px 0;
+  width: 100%;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: center;
+  position: relative;
+  background-color: #000;
+}
+.milestoneCard {
+  padding: 46px 77px 36px 77px;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  box-shadow: 0px 0px 30px #63a1ff;
+  width: 382px;
+  border-radius: 20px;
+  margin-bottom: 176px;
+  h4 {
+    font-family: Syne;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 43px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom: 27px;
+
+    color: #434343;
+  }
+  ul {
+    display: flex;
+
+    flex-direction: column;
+    align-items: flex-start;
+    li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      div {
+        width: 8px;
+        height: 8px;
+        margin-right: 6px;
+        border-radius: 50%;
+        background: #000;
+        &.completedMilestone {
+          background: #63a1ff;
+        }
+      }
+      font-family: "Bitter";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 28px;
+      color: #0f0f0f;
+    }
+  }
+}
+
+.milestoneItem {
+  &.firstMilestone {
+    margin-top: 257px;
+  }
+  display: flex;
+  justify-content: space-between;
+  h4.milestoneTitle {
+    font-family: "Syne";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    display: flex;
+    color: #434343;
+    margin-top: 120px;
+    &.completed {
+      color: #63a1ff;
+      text-shadow: 0px 0px 15px 0px #33a2cc;
+    }
+  }
+}

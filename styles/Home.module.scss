@@ -1,0 +1,22 @@
+.container {
+  position: relative;
+  /* overflow-y: auto; */
+  /* overscroll-behavior-y: contain; */
+  /* scroll-snap-type: y mandatory; */
+  height: 100vh;
+  width: 100%;
+}
+.mainSections {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .scroll {
+    position: -webkit-sticky;
+    position: fixed;
+    top: 90px;
+    right: 67px;
+    height: 80vh;
+    z-index: 100;
+  }
+}
