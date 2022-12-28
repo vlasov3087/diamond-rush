@@ -83,8 +83,10 @@ export default function Home() {
             mousewheel={{
               sensitivity: 0.00001,
             }}
+            followFinger={false}
+            shortSwipes={false}
             preventInteractionOnTransition={true}
-            allowTouchMove={true}
+            allowTouchMove={false}
             initialSlide={activePage}
             onSwiper={(swiper) => setSwiper(swiper)}
             onSlideChange={(e) => {
