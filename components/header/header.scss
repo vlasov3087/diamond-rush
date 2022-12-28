@@ -8,13 +8,15 @@ header {
     .logo-image {
       width: 116px;
       margin: 14px 52px 14px 0;
-
     }
     max-width: 100vw;
     box-sizing: border-box;
     padding: 0 130px 0 60px;
     transition: box-shadow 0.4s ease, background-color 0.4s ease;
+    display: flex;
+    justify-content: center;
     nav {
+      max-width: 1250px;
       display: flex;
       justify-content: space-between;
       a {
