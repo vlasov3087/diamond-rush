@@ -11,14 +11,11 @@ const AboutSection: FC<{}> = () => {
   const pagination = {
     clickable: true,
     draggble: true,
+
     renderBullet: function (index: number, className: string) {
-      return index === 0
-        ? `<span class="paginationNumber">${
-            index + 1
-          }</span><span class="${className}"></span>`
-        : `<span class="${className}"></span><span class="paginationNumber">${
-            index + 1
-          }</span>`;
+      return `<span class="${className}"><span class="paginationNumber">${
+        index + 1
+      }</span></span>`;
     },
   };
   return (

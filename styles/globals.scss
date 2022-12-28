@@ -44,6 +44,22 @@ body {
   color: #000;
   opacity: 1;
   background: rgba(0, 0, 0, 0.2);
+  &:first-child {
+    position: relative;
+    .paginationNumber {
+      position: absolute;
+      left: -15px;
+      top: -12px;
+    }
+  }
+  &:last-child {
+    position: relative;
+    .paginationNumber {
+      position: absolute;
+      right: -15px;
+      top: -12px;
+    }
+  }
 }
 
 .swiper-pagination-bullet-active {
@@ -82,10 +98,6 @@ body {
   display: flex;
 }
 
-.paginationNumber {
-  margin: 0px 6px;
-}
-
 .swiper-container {
   height: 100%;
   width: 100%;
@@ -108,4 +120,12 @@ body {
   &.pink {
     background: linear-gradient(125.06deg, #b01ef5 -2.31%, #ea43ed 97.12%);
   }
+}
+.paginationNumber {
+  font-family: "Bitter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  color: #FFFFFF;
 }

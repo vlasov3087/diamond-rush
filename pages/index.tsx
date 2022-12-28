@@ -76,12 +76,17 @@ export default function Home() {
           </div>
           <Swiper
             direction={"vertical"}
+            touchEventsTarget={"container"}
             speed={500}
             parallax={true}
             autoplay={false}
             mousewheel={{
               sensitivity: 0.00001,
             }}
+            followFinger={false}
+            shortSwipes={false}
+            preventInteractionOnTransition={true}
+            allowTouchMove={false}
             initialSlide={activePage}
             onSwiper={(swiper) => setSwiper(swiper)}
             onSlideChange={(e) => {
