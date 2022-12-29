@@ -82,6 +82,7 @@ export default function Home() {
             autoplay={false}
             mousewheel={{
               sensitivity: 0.00001,
+              thresholdDelta: 100,
             }}
             followFinger={false}
             shortSwipes={false}
