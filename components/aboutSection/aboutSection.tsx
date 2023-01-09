@@ -40,12 +40,12 @@ const AboutSection: FC<{}> = () => {
               }`}
             >
               <SwiperSlide className={`${styles.slide} `}>
-                <video className={styles.video} autoPlay muted loop>
+                <video className={styles.video} autoPlay playsInline muted loop>
                   <source src="/videos/videoSection.mp4" type="video/mp4" />
                 </video>
               </SwiperSlide>
               <SwiperSlide className={styles.slide}>
-                <video className={styles.video} autoPlay muted loop>
+                <video className={styles.video} autoPlay muted loop playsInline>
                   <source src="/videos/videoSection.mp4" type="video/mp4" />
                 </video>
               </SwiperSlide>

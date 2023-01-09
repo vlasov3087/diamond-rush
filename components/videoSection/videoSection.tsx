@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 const VideoSection: FC<{}> = () => {
   return (
     <div className={styles.section}>
-      <video className={styles.video} autoPlay muted loop>
+      <video className={styles.video} autoPlay muted playsInline loop>
         <source src="/videos/videoSection.mp4" type="video/mp4" />
       </video>
       <Container>
