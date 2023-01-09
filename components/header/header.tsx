@@ -150,7 +150,7 @@ const Header: FC<{
           </nav>
         </div>
       </header>
-      <MobileNav open={open} />
+      <MobileNav open={open} toggle={toggle} />
     </>
   );
 };

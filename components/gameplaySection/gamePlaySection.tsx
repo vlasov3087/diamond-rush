@@ -57,7 +57,11 @@ const GameplaySection: FC<{}> = () => {
               <h2 className={styles.sectionTitle}>GAMEPLAY FUTURES</h2>
             ) : null}
 
-            <p className={styles.sectionSubtitle}>
+            <p
+              className={`${styles.sectionSubtitle} ${
+                isTablet ? styles.tabletSubtitle : ""
+              }`}
+            >
               Seeing the character from 3pv, the player can move around the game
               world at different levels of zoom, select areas for mining and
               control one’s character. One earth cube can be mined by one player

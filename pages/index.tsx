@@ -80,7 +80,7 @@ export default function Home() {
         <div className={`container ${styles.container}`}>
           <div
             className={`${styles.mainSections}  ${
-              isPhone ? styles.mobile : ""
+              isPhone ? styles.mobile : isTablet ? styles.tablet : ""
             }`}
           >
             {!isTablet ? (

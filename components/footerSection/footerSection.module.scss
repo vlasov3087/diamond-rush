@@ -1,13 +1,31 @@
 .section {
   width: 100%;
-padding: 78px 0;
+  padding: 78px 0;
   display: flex;
-z-index: 1010;
+  z-index: 1010;
   justify-content: center;
   align-items: center;
   scroll-snap-align: center;
   position: relative;
   background-color: #000;
+  &.mobileFooter {
+    form {
+      padding: 20px 15px;
+      margin-bottom: 15px;
+    }
+    p {
+      margin-top: 15px;
+    }
+    .footerText {
+      margin: 0 0 15px 0;
+      font-family: "Syne";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 22px;
+      text-align: center;
+    }
+  }
 }
 
 .footerText {

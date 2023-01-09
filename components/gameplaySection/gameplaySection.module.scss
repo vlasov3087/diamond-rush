@@ -30,20 +30,21 @@
   font-size: 16px;
   line-height: 28px;
   color: #ffffff;
-      &.mobileSlide {
-    height: 300px;
+  &.tabletSubtitle {
+    margin-top: 20px;
   }
-
 }
 
 .swiperSlider {
   height: 452px;
   padding-bottom: 62px;
+  &.mobileSlide {
+    height: 300px;
+  }
 }
 
 .slide {
   background: #d9d9d9;
-
 }
 .video {
   position: absolute;

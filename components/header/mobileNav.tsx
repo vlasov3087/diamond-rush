@@ -3,7 +3,7 @@ import { useTransition, animated } from "react-spring";
 
 const headings = ["VIDEO", "ABOUT", "GAMEPLAY", "ROADMAP"];
 
-const MobileNav: FC<any> = ({ open }) => {
+const MobileNav: FC<any> = ({ open, toggle }) => {
   useEffect(() => {
     if (open) {
       document.body.style.overflowY = "hidden";
@@ -35,11 +35,58 @@ const MobileNav: FC<any> = ({ open }) => {
       <animated.nav style={{ opacity }} className="mobile-nav">
         <div className="content-wrapper">
           <animated.ul style={{ transform: transformMain }} className="list">
-            {headings.map((heading) => (
-              <li className="list-item" key={heading}>
-                {heading}
-              </li>
-            ))}
+            <li className="list-item">
+              <a
+                href="#home"
+                onClick={() => {
+                  toggle(false);
+                }}
+              >
+                HOME
+              </a>
+            </li>
+            <li
+              className="list-item"
+              onClick={() => {
+                toggle(false);
+              }}
+            >
+              <a href="#video">VIDEO</a>
+            </li>
+            <li
+              className="list-item"
+              onClick={() => {
+                toggle(false);
+              }}
+            >
+              <a href="#about">ABOUT</a>
+            </li>
+            <li
+              className="list-item"
+              onClick={() => {
+                toggle(false);
+              }}
+            >
+              <a href="#gameplay">GAMEPLAY</a>
+            </li>
+            <li
+              className="list-item"
+              onClick={() => {
+                toggle(false);
+              }}
+            >
+              <a href="#about">NFT</a>
+            </li>
+            <li className="list-item">
+              <a
+                href="#roadmap"
+                onClick={() => {
+                  toggle(false);
+                }}
+              >
+                ROADMAP
+              </a>
+            </li>
           </animated.ul>
         </div>
       </animated.nav>

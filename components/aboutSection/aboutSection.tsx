@@ -55,7 +55,11 @@ const AboutSection: FC<{}> = () => {
             {isLaptop ? (
               <h2 className={styles.sectionTitle}>WHAT IS DIAMOND RUSH?</h2>
             ) : null}
-            <p className={styles.sectionSubtitle}>
+            <p
+              className={`${styles.sectionSubtitle} ${
+                isTablet ? styles.tabletSubtitle : ""
+              }`}
+            >
               Diamond Rush is a Free-to-Play game where you can explore new
               horizons and earn crypto while playing! In Diamond Rush you will
               be able to create your own unique character from the bottom to

@@ -14,13 +14,13 @@ const FooterSection: FC<{}> = () => {
   const isLaptop = useMediaQuery({ query: "(min-width: 1181px)" });
 
   return (
-    <div className={styles.section}>
+    <div className={`${styles.section} ${isPhone ? styles.mobileFooter : ""}`}>
       <Container>
         <Row>
           <Col lg={7} sm={12}>
-            <p className={styles.footerText}>
+            <div className={styles.footerText}>
               Subscribe for Diamond Rush insights delivered straight to inbox
-            </p>
+            </div>
             <div className={styles.copyright}>
               {!isPhone ? (
                 <img className="logo-image" src="/images/logo.svg" alt="logo" />
