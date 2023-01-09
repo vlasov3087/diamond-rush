@@ -19,6 +19,7 @@ background-color: #000;
     justify-content: center;
     align-items: center;
     background-color: #000;
+transition: all .3s ease;
 }
 
 .spinner {

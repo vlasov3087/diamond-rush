@@ -4,10 +4,15 @@ import { useEventListener } from "../hooks/useEventListener";
 
 export default function App({ Component, pageProps }: AppProps) {
   const handleLoaded = (): void => {
-    const loader = document.getElementById("globalLoader");
-    if (loader) loader.style.display = "none";
+    if (document.readyState) {
+      const loader = document.getElementById("globalLoader");
+      if (loader) {
+        loader.style.opacity = "0";
+        loader.style.visibility = "hidden";
+      }
+    }
   };
-  useEventListener(undefined, "scroll", handleLoaded);
+  useEventListener(undefined, "readystatechange", handleLoaded);
 
   return <Component {...pageProps} />;
 }

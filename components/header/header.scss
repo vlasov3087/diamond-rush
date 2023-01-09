@@ -42,7 +42,7 @@ header {
           display: flex;
           transition: padding 0.4s ease;
           .active {
-            text-shadow: 0px 0px 30px #31f3ff !important;
+            box-shadow: 0px 0px 50px #31f3ff !important;
           }
         }
       }
