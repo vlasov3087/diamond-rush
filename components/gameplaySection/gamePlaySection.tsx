@@ -7,6 +7,7 @@ import "swiper/css/pagination";
 // import required modules
 import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useMediaQuery } from "react-responsive";
 const GameplaySection: FC<{}> = () => {
   const pagination = {
     clickable: true,
@@ -19,18 +20,28 @@ const GameplaySection: FC<{}> = () => {
   };
   const headlineRef: any = useRef();
   const sectionRef: any = useRef();
+  const isPhone = useMediaQuery({ query: "(max-width: 768px)" });
+  const isTablet = useMediaQuery({ query: "(max-width: 991px)" });
+  const isLaptop = useMediaQuery({ query: "(min-width: 992px)" });
+
   return (
     <div className={styles.section} ref={sectionRef}>
       <Container>
         <Row ref={headlineRef}>
-          <Col lg={6} offset={{ lg: 1 }}>
+          <Col lg={6}>
+            {isTablet ? (
+              <h2 className={styles.sectionTitle}>GAMEPLAY FUTURES</h2>
+            ) : null}
+
             <Swiper
               pagination={pagination}
               modules={[Pagination]}
-              className={styles.swiperSlider}
+              className={`${styles.swiperSlider} ${
+                isPhone ? styles.mobileSlide : ""
+              }`}
             >
-              <SwiperSlide className={styles.slide}>
-                <video className={styles.video} autoPlay muted loop>
+              <SwiperSlide className={`${styles.slide} `}>
+                <video className={`${styles.video} `} autoPlay muted loop>
                   <source src="/videos/videoSection.webm" type="video/webm" />
                 </video>
               </SwiperSlide>
@@ -41,8 +52,11 @@ const GameplaySection: FC<{}> = () => {
               </SwiperSlide>
             </Swiper>
           </Col>
-          <Col lg={5}>
-            <h2 className={styles.sectionTitle}>GAMEPLAY FUTURES</h2>
+          <Col lg={5} offset={{ lg: 1 }}>
+            {isLaptop ? (
+              <h2 className={styles.sectionTitle}>GAMEPLAY FUTURES</h2>
+            ) : null}
+
             <p className={styles.sectionSubtitle}>
               Seeing the character from 3pv, the player can move around the game
               world at different levels of zoom, select areas for mining and

@@ -15,12 +15,23 @@ import { EffectFade, Mousewheel, Scrollbar } from "swiper";
 import VideoSection from "../components/videoSection";
 import AboutSection from "../components/aboutSection";
 import GameplaySection from "../components/gameplaySection";
+import { ScreenClassProvider, setConfiguration } from "react-grid-system";
+import { useMediaQuery } from "react-responsive";
+
+setConfiguration({
+  breakpoints: [411, 768, 992, 1180, 1180, 1180],
+  containerWidths: [375, 740, 960, 1210, 1210, 1210],
+});
 
 export default function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [scrollTop, setScrollTop] = useState(0);
   const [activePage, setActivePage] = useState(0);
   const [swiper, setSwiper] = useState<SwiperEvent>();
+  const isPhone = useMediaQuery({ query: "(max-width: 768px)" });
+  const isTablet = useMediaQuery({ query: "(max-width: 1180px)" });
+  const isLaptop = useMediaQuery({ query: "(min-width: 1181px)" });
+
   useEffect(() => {
     if (swiper) {
       swiper.slideTo(activePage);
@@ -64,72 +75,101 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header setActivePage={setActivePage} />
-      <div className={`container ${styles.container}`}>
-        <div className={styles.mainSections}>
-          <div className={styles.scroll}>
-            <ScrollIndicator
-              height={10}
-              activeSlide={activeSlide}
-              scrollTop={scrollTop}
-            />
-          </div>
-          <Swiper
-            direction={"vertical"}
-            touchEventsTarget={"container"}
-            speed={500}
-            parallax={true}
-            autoplay={false}
-            mousewheel={{
-              sensitivity: 0.00001,
-              thresholdDelta: 100,
-            }}
-            followFinger={false}
-            shortSwipes={false}
-            preventInteractionOnTransition={true}
-            allowTouchMove={false}
-            initialSlide={activePage}
-            onSwiper={(swiper) => setSwiper(swiper)}
-            onSlideChange={(e) => {
-              setActiveSlide(e.activeIndex);
-            }}
-            onSlideChangeTransitionEnd={handleScrollInside}
-            effect={"fade"}
-            fadeEffect={{
-              crossFade: true,
-            }}
-            modules={[Mousewheel, Scrollbar, EffectFade]}
-            className="swiper-container"
+      <ScreenClassProvider>
+        <Header setActivePage={setActivePage} activeSlide={activeSlide} />
+        <div className={`container ${styles.container}`}>
+          <div
+            className={`${styles.mainSections}  ${
+              isPhone ? styles.mobile : ""
+            }`}
           >
-            <SwiperSlide>
-              <div className="panel" id="home">
-                <HeroSection />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="panel" id="video">
-                <VideoSection />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="panel" id="about">
-                <AboutSection />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="panel" id="gameplay">
-                <GameplaySection />
-              </div>
-            </SwiperSlide>
-            <SwiperSlide draggable={false} style={{ overflow: "auto" }}>
-              <div className="panel" id="roadmap">
-                <RoadmapSection />
-                <FooterSection />
-              </div>
-            </SwiperSlide>
-          </Swiper>
+            {!isTablet ? (
+              <>
+                <div className={styles.scroll}>
+                  <ScrollIndicator
+                    height={10}
+                    activeSlide={activeSlide}
+                    scrollTop={scrollTop}
+                  />
+                </div>
+                <Swiper
+                  direction={"vertical"}
+                  touchEventsTarget={"container"}
+                  speed={200}
+                  parallax={true}
+                  autoplay={false}
+                  mousewheel={{
+                    sensitivity: 0.00001,
+                    thresholdDelta: 100,
+                  }}
+                  followFinger={false}
+                  shortSwipes={false}
+                  preventInteractionOnTransition={true}
+                  allowTouchMove={false}
+                  initialSlide={activePage}
+                  onSwiper={(swiper) => setSwiper(swiper)}
+                  onSlideChange={(e) => {
+                    setActiveSlide(e.activeIndex);
+                  }}
+                  onSlideChangeTransitionEnd={handleScrollInside}
+                  effect={"fade"}
+                  fadeEffect={{
+                    crossFade: true,
+                  }}
+                  modules={[Mousewheel, Scrollbar, EffectFade]}
+                  className="swiper-container"
+                >
+                  <SwiperSlide>
+                    <div className="panel" id="home">
+                      <HeroSection />
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <div className="panel" id="video">
+                      <VideoSection />
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <div className="panel" id="about">
+                      <AboutSection />
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <div className="panel" id="gameplay">
+                      <GameplaySection />
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide draggable={false} style={{ overflow: "auto" }}>
+                    <div className="panel" id="roadmap">
+                      <RoadmapSection />
+                      <FooterSection />
+                    </div>
+                  </SwiperSlide>
+                </Swiper>
+              </>
+            ) : (
+              <>
+                <div className="panel" id="home">
+                  <HeroSection />
+                </div>
+                <div className="panel" id="video">
+                  <VideoSection />
+                </div>
+                <div className="panel" id="about">
+                  <AboutSection />
+                </div>
+                <div className="panel" id="gameplay">
+                  <GameplaySection />
+                </div>
+                <div className="panel" id="roadmap">
+                  <RoadmapSection />
+                  <FooterSection />
+                </div>
+              </>
+            )}
+          </div>
         </div>
-      </div>
+      </ScreenClassProvider>
     </>
   );
 }

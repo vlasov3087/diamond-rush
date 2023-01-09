@@ -9,6 +9,23 @@
   position: relative;
   background-color: #000;
 }
+.line {
+  content: "";
+  position: absolute;
+  height: 100%;
+  background: #ffffff;
+  z-index: 1;
+  width: 5px;
+  top: 0;
+  left: 37px;
+  &.mobileLine {
+    left: 15px;
+  }
+  &.unfinishedLine {
+    background: #434343;
+  }
+}
+
 .milestoneCard {
   padding: 46px 77px 36px 77px;
   display: flex;
@@ -18,6 +35,21 @@
   width: 382px;
   border-radius: 20px;
   margin-top: 176px;
+  &.mobileCard {
+    padding: 20px 23px 20px 23px;
+    width: 224px;
+    margin-top: 0px;
+    margin-bottom: 25px;
+
+    h4 {
+      text-align: center;
+      font-family: "Syne";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
   &.unfinishedCard {
     background: #434343;
     box-shadow: 0px 0px 30px #63a1ff;
@@ -31,19 +63,6 @@
           background: #959595;
         }
       }
-    }
-  }
-  .line {
-    content: "";
-    position: absolute;
-    height: 100%;
-    background: #ffffff;
-    z-index: 1;
-    width: 5px;
-    top: 0;
-    left: 270px;
-    &.unfinishedLine {
-      background: #434343;
     }
   }
 
@@ -86,7 +105,9 @@
     }
   }
 }
-
+.circleWrapper {
+  position: relative;
+}
 .milestoneItem {
   &.firstMilestone {
     padding-top: 81px;
@@ -94,7 +115,17 @@
   display: flex;
   justify-content: space-between;
   position: relative;
+  &.mobileMilestone {
+    justify-content: center;
+    position: relative;
+    .circleWrapper {
+      position: absolute;
+      left: 0;
+      height: 100%;
+    }
+  }
   .checkCircle {
+    position: relative;
     margin-top: 265px;
     width: 80px;
     height: 80px;
@@ -105,8 +136,19 @@
     z-index: 100;
     border-radius: 50%;
     border: 6px solid #ffffff;
+    &.mobileCircle {
+      margin-top: 100px;
+      height: 34px;
+      width: 34px;
+      border: 4px solid #ffffff;
+      svg {
+        width: 14px;
+        height: 9px;
+      }
+    }
+
     &.unfinishedCircle {
-      border: 6px solid #434343;
+      border-color: #434343;
     }
   }
   h4.milestoneTitle {

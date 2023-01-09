@@ -19,7 +19,9 @@ z-index: 1010;
   text-align: left;
   margin-bottom: 50px;
 }
-
+.columnWWrapper {
+  display: flex;
+}
 .copyright {
   display: flex;
   align-items: center;

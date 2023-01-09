@@ -7,6 +7,7 @@ import "swiper/css/pagination";
 // import required modules
 import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useMediaQuery } from "react-responsive";
 const AboutSection: FC<{}> = () => {
   const pagination = {
     clickable: true,
@@ -18,17 +19,27 @@ const AboutSection: FC<{}> = () => {
       }</span></span>`;
     },
   };
+  const isPhone = useMediaQuery({ query: "(max-width: 768px)" });
+  const isTablet = useMediaQuery({ query: "(max-width: 991px)" });
+  const isLaptop = useMediaQuery({ query: "(min-width: 992px)" });
+
   return (
-    <div className={styles.section}>
+    <div className={`${styles.section}`}>
       <Container>
         <Row>
-          <Col lg={5} offset={{ lg: 1 }}>
+          <Col lg={5} md={12}>
+            {isTablet ? (
+              <h2 className={styles.sectionTitle}>WHAT IS DIAMOND RUSH?</h2>
+            ) : null}
+
             <Swiper
               pagination={pagination}
               modules={[Pagination]}
-              className={styles.swiperSlider}
+              className={`${styles.swiperSlider} ${
+                isPhone ? styles.mobileSlide : ""
+              }`}
             >
-              <SwiperSlide className={styles.slide}>
+              <SwiperSlide className={`${styles.slide} `}>
                 <video className={styles.video} autoPlay muted loop>
                   <source src="/videos/videoSection.webm" type="video/webm" />
                 </video>
@@ -40,8 +51,10 @@ const AboutSection: FC<{}> = () => {
               </SwiperSlide>
             </Swiper>
           </Col>
-          <Col lg={6}>
-            <h2 className={styles.sectionTitle}>WHAT IS DIAMOND RUSH?</h2>
+          <Col lg={6} offset={{ lg: 1 }} md={12}>
+            {isLaptop ? (
+              <h2 className={styles.sectionTitle}>WHAT IS DIAMOND RUSH?</h2>
+            ) : null}
             <p className={styles.sectionSubtitle}>
               Diamond Rush is a Free-to-Play game where you can explore new
               horizons and earn crypto while playing! In Diamond Rush you will

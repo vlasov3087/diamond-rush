@@ -112,10 +112,10 @@ const RoadmapSection: FC<{}> = () => {
     <div className={styles.section}>
       <Container>
         <Row>
-          <Col lg={4}>
+          <Col lg={4} md={12}>
             <h2>OUR LUCKY ROADMAP</h2>
           </Col>
-          <Col lg={8}>
+          <Col lg={8} md={12}>
             {milestones.map((item) => {
               return (
                 <Milestone

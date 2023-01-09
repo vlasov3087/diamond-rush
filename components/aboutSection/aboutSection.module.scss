@@ -35,10 +35,15 @@
 .swiperSlider {
   height: 452px;
   padding-bottom: 62px;
+      &.mobileSlide {
+    height: 300px;
+  }
+
 }
 
 .slide {
   background: #d9d9d9;
+ 
 }
 .video {
   position: absolute;

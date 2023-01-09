@@ -5,23 +5,32 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Warp from "../warp";
 import { Container, Row, Col } from "react-grid-system";
+import { useMediaQuery } from "react-responsive";
 gsap.registerPlugin(ScrollTrigger);
 
 const FooterSection: FC<{}> = () => {
+  const isPhone = useMediaQuery({ query: "(max-width: 768px)" });
+  const isTablet = useMediaQuery({ query: "(max-width: 1180px)" });
+  const isLaptop = useMediaQuery({ query: "(min-width: 1181px)" });
+
   return (
     <div className={styles.section}>
       <Container>
         <Row>
-          <Col lg={7}>
+          <Col lg={7} sm={12}>
             <p className={styles.footerText}>
               Subscribe for Diamond Rush insights delivered straight to inbox
             </p>
             <div className={styles.copyright}>
-              <img className="logo-image" src="/images/logo.svg" alt="logo" />
-              <p>Copyright ⓒ 2022 Diamon Rush. All rights reserved.</p>
+              {!isPhone ? (
+                <img className="logo-image" src="/images/logo.svg" alt="logo" />
+              ) : null}
+              {!isPhone ? (
+                <p>Copyright ⓒ 2022 Diamon Rush. All rights reserved.</p>
+              ) : null}
             </div>
           </Col>
-          <Col lg={5}>
+          <Col lg={5} sm={12}>
             <form action="" className={styles.subscribe}>
               <input type="email" placeholder="E-mail address" />
               <button>SUBSCRIBE</button>
@@ -68,6 +77,9 @@ const FooterSection: FC<{}> = () => {
                 />
               </a>
             </div>
+            {isPhone ? (
+              <p>Copyright ⓒ 2022 Diamon Rush. All rights reserved.</p>
+            ) : null}
           </Col>
         </Row>
       </Container>

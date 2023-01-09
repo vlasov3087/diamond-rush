@@ -3,9 +3,8 @@ import styles from "./heroSection.module.scss";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Warp from "../warp";
-import { Container, Row, Col, setConfiguration } from "react-grid-system";
+import { Container, Row, Col } from "react-grid-system";
 gsap.registerPlugin(ScrollTrigger);
-setConfiguration({breakpoints: [576, 768, 992, 1180, 1180, 1180], containerWidths: [540, 740, 960, 1210, 1210, 1210]});
 const HeroSection: FC<{}> = () => {
   return (
     <div className={styles.section}>
