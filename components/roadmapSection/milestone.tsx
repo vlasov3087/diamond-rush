@@ -40,7 +40,7 @@ const Milestone: FC<{
           }  ${isPhone ? styles.mobileLine : ""}`}
           style={{
             background: isFirst
-              ? "linear-gradient(0deg, rgba(67,67,67,1) 0%, rgba(255,255,255,1) 42%);"
+              ? "linear-gradient(0deg, rgba(67,67,67,1) 0%, rgba(255,255,255,1) 42%)"
               : undefined,
           }}
         ></div>
