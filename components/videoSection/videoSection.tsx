@@ -9,7 +9,7 @@ const VideoSection: FC<{}> = () => {
   return (
     <div className={styles.section}>
       <video className={styles.video} autoPlay muted loop>
-        <source src="/videos/videoSection.webm" type="video/webm" />
+        <source src="/videos/videoSection.mp4" type="video/mp4" />
       </video>
       <Container>
         <Row justify="center">

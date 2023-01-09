@@ -6,7 +6,7 @@ background-color: #000;
 }
 #globalLoader{
     position: fixed;
-    z-index: 1700;
+    z-index: 170000;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

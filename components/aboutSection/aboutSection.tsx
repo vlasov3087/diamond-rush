@@ -41,12 +41,12 @@ const AboutSection: FC<{}> = () => {
             >
               <SwiperSlide className={`${styles.slide} `}>
                 <video className={styles.video} autoPlay muted loop>
-                  <source src="/videos/videoSection.webm" type="video/webm" />
+                  <source src="/videos/videoSection.mp4" type="video/mp4" />
                 </video>
               </SwiperSlide>
               <SwiperSlide className={styles.slide}>
                 <video className={styles.video} autoPlay muted loop>
-                  <source src="/videos/videoSection.webm" type="video/webm" />
+                  <source src="/videos/videoSection.mp4" type="video/mp4" />
                 </video>
               </SwiperSlide>
             </Swiper>
