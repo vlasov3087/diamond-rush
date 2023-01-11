@@ -19,8 +19,8 @@ import { ScreenClassProvider, setConfiguration } from "react-grid-system";
 import { useMediaQuery } from "react-responsive";
 
 setConfiguration({
-  breakpoints: [411, 768, 992, 1180, 1180, 1180],
-  containerWidths: [375, 740, 960, 1210, 1210, 1210],
+  breakpoints: [576, 768, 992, 1180, 1180, 1180],
+  containerWidths: [580, 740, 960, 1210, 1210, 1210],
 });
 
 export default function Home() {
@@ -28,7 +28,7 @@ export default function Home() {
   const [scrollTop, setScrollTop] = useState(0);
   const [activePage, setActivePage] = useState(0);
   const [swiper, setSwiper] = useState<SwiperEvent>();
-  const isPhone = useMediaQuery({ query: "(max-width: 768px)" });
+  const isPhone = useMediaQuery({ query: "(max-width: 580px)" });
   const isTablet = useMediaQuery({ query: "(max-width: 1180px)" });
   const isLaptop = useMediaQuery({ query: "(min-width: 1181px)" });
 

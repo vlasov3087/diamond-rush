@@ -37,9 +37,17 @@
 }
 .tablet {
   h1 {
+    font-size: 48px !important;
+    line-height: 58px !important;
     text-align: center;
   }
   h2 {
-    text-align: center;
+    font-size: 36px !important;
+    line-height: 43px !important;
+    text-align: center !important;
+  }
+  p {
+    font-size: 16px !important;
+    text-align: center !important;
   }
 }
