@@ -1,4 +1,4 @@
-import React, { useState, FC } from "react";
+import React, { useState, FC, useLayoutEffect } from "react";
 import Link from "next/link";
 import { useEventListener } from "../../hooks/useEventListener";
 import { useSpring } from "react-spring";
@@ -18,11 +18,16 @@ const Header: FC<{
   setActivePage: (num: number) => void;
 }> = ({ setActivePage, activeSlide }) => {
   const [navShadow, setShadow] = useState<"navShadow" | "">("");
-  const handleScroll = (): void => {
-    const windowTop: number = window.scrollY;
-    windowTop > 90 ? setShadow("navShadow") : setShadow("");
-  };
-  useEventListener(undefined, "scroll", handleScroll);
+  useLayoutEffect(() => {
+    const scroll = document.querySelector(".scrollCanvas");
+    scroll?.addEventListener("scroll", () => {
+      const windowTop: number = scroll?.scrollTop as number;
+      console.log(windowTop);
+
+      windowTop > 90 ? setShadow("navShadow") : setShadow("");
+    });
+  }, []);
+
   const [open, toggle] = useState(false);
   const [styles, api] = useSpring(() => ({
     transformTop: "translate(-6px, 10px) rotate(0deg)",

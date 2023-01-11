@@ -19,6 +19,12 @@
     right: 67px;
     height: 80vh;
     z-index: 100;
+    &.mobileScroll {
+      top: 0px;
+      right: 0px;
+      height: 100vh;
+      z-index: 100000;
+    }
   }
 }
 

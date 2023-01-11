@@ -85,17 +85,23 @@ export default function Home() {
           <div
             className={`${styles.mainSections}  ${
               isPhone ? styles.mobile : isTablet ? styles.tablet : ""
-            }`}
+            } scrollCanvas`}
           >
+            <div
+              className={`${styles.scroll} ${
+                isTablet ? styles.mobileScroll : ""
+              }`}
+            >
+              <ScrollIndicator
+                height={10}
+                activeSlide={activeSlide}
+                scrollTop={scrollTop}
+                isMobile={isTablet ? true : false}
+              />
+            </div>
+
             {!isTablet ? (
               <>
-                <div className={styles.scroll}>
-                  <ScrollIndicator
-                    height={10}
-                    activeSlide={activeSlide}
-                    scrollTop={scrollTop}
-                  />
-                </div>
                 {domLoaded && (
                   <Swiper
                     direction={"vertical"}
