@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { Container, Row, Col } from "react-grid-system";
 import Milestone from "./milestone";
+import { useMediaQuery } from "react-responsive";
 gsap.registerPlugin(ScrollTrigger);
 
 const RoadmapSection: FC<{}> = () => {
@@ -108,8 +109,12 @@ const RoadmapSection: FC<{}> = () => {
       ],
     },
   ];
+  const isTablet = useMediaQuery({ query: "(max-width: 1180px)" });
+
   return (
-    <div className={styles.section}>
+    <div
+      className={`${styles.section} ${isTablet ? styles.mobileSection : ""}`}
+    >
       <Container>
         <Row>
           <Col lg={4} md={12}>

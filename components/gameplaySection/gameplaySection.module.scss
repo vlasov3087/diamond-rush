@@ -11,6 +11,14 @@
   z-index: 1;
   position: relative;
   background-color: #000;
+  &.mobileSection {
+    height: auto;
+    padding: 30px 0;
+    align-items: flex-start;
+    h2 {
+      margin-top: 0;
+    }
+  }
 }
 .sectionTitle {
   font-family: "Syne";

@@ -24,8 +24,8 @@ const HamburgerMenu: FC<any> = ({
               transformTop: "translate(-6px, 10px) rotate(0deg)",
               transformMiddle: "translate(-6px, 0px) rotate(0deg)",
               transformBottom: "translate(-6px, -10px) rotate(0deg)",
-              widthTop: "24px",
-              widthBottom: "20px",
+              widthTop: "28px",
+              widthBottom: "28px",
               config: {
                 clamp: false,
                 friction: animationConfig.frictionLight,

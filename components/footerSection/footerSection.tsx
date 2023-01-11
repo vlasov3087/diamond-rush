@@ -10,8 +10,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const FooterSection: FC<{}> = () => {
   const isPhone = useMediaQuery({ query: "(max-width: 768px)" });
-  const isTablet = useMediaQuery({ query: "(max-width: 1180px)" });
-  const isLaptop = useMediaQuery({ query: "(min-width: 1181px)" });
 
   return (
     <div className={`${styles.section} ${isPhone ? styles.mobileFooter : ""}`}>

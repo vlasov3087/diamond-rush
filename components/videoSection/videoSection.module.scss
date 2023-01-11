@@ -6,6 +6,20 @@
   z-index: 1;
   position: relative;
   background-color: #000;
+  &.mobileSection {
+    height: auto;
+    padding: 3 px 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    h2 {
+      margin-top: 0;
+    }
+    .video {
+      height: 300px;
+      position: relative;
+      margin-top: 15px;
+    }
+  }
 }
 .sectionTitle {
   font-family: "Syne";

@@ -1,7 +1,6 @@
 import { FC, useEffect } from "react";
 import { useTransition, animated } from "react-spring";
-
-const headings = ["VIDEO", "ABOUT", "GAMEPLAY", "ROADMAP"];
+import { easings } from "@react-spring/web";
 
 const MobileNav: FC<any> = ({ open, toggle }) => {
   useEffect(() => {
@@ -13,28 +12,31 @@ const MobileNav: FC<any> = ({ open, toggle }) => {
   }, [open]);
 
   const transition = useTransition(open, {
+    config: {
+      duration: 500,
+      easing: easings.easeInOutCubic,
+    },
+
     from: {
       opacity: 0,
-      transformMain: "translateX(40px)",
-      transformFoot: "translateX(200px)",
+
+      transformMain: "translateY(-400px)",
     },
     enter: {
-      opacity: 1,
-      transformMain: "translateX(0px)",
-      transformFoot: "translateX(0px)",
+      opacity: 0.5,
+      transformMain: "translateY(0px)",
     },
     leave: {
       opacity: 0,
-      transformMain: "translateX(40px)",
-      transformFoot: "translateX(200px)",
+      transformMain: "translateY(-400px)",
     },
   });
 
-  return transition(({ opacity, transformMain, transformFoot }, visible) => {
+  return transition(({ opacity, transformMain }, visible) => {
     return visible ? (
-      <animated.nav style={{ opacity }} className="mobile-nav">
+      <animated.nav style={{ transform: transformMain }} className="mobile-nav">
         <div className="content-wrapper">
-          <animated.ul style={{ transform: transformMain }} className="list">
+          <animated.ul style={{}} className="list">
             <li className="list-item">
               <a
                 href="#home"
@@ -89,6 +91,10 @@ const MobileNav: FC<any> = ({ open, toggle }) => {
             </li>
           </animated.ul>
         </div>
+        <animated.div
+          className="content-background"
+          style={{ opacity}}
+        ></animated.div>
       </animated.nav>
     ) : null;
   });
