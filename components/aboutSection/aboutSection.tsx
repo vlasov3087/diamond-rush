@@ -3,9 +3,10 @@ import styles from "./aboutSection.module.scss";
 import { Container, Row, Col } from "react-grid-system";
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/effect-fade";
 
 // import required modules
-import { Pagination } from "swiper";
+import { EffectFade, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useMediaQuery } from "react-responsive";
 const AboutSection: FC<{}> = () => {
@@ -36,7 +37,11 @@ const AboutSection: FC<{}> = () => {
 
             <Swiper
               pagination={pagination}
-              modules={[Pagination]}
+              modules={[Pagination, EffectFade]}
+              effect={"fade"}
+              fadeEffect={{
+                crossFade: true,
+              }}
               className={`${styles.swiperSlider} ${
                 isPhone ? styles.mobileSlide : ""
               }`}
