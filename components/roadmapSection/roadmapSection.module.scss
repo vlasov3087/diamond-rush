@@ -49,6 +49,22 @@
   width: 382px;
   border-radius: 20px;
   margin-top: 176px;
+  &.tabletCard {
+    padding: 36px 36px;
+    width: 280px;
+    margin-top: 0px;
+    margin-bottom: 25px;
+
+    h4 {
+      text-align: center;
+      font-family: "Syne";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 29px;
+    }
+  }
+
   &.mobileCard {
     padding: 20px 23px 20px 23px;
     width: 224px;
@@ -134,8 +150,8 @@
     position: relative;
     .circleWrapper {
       position: absolute;
-      left: 0;
       height: 100%;
+      right: calc(71% + 55px);
     }
   }
   .checkCircle {
@@ -150,6 +166,10 @@
     z-index: 100;
     border-radius: 50%;
     border: 6px solid #ffffff;
+    &.tabletCircle {
+      margin-top: 100px;
+    }
+
     &.mobileCircle {
       margin-top: 100px;
       height: 34px;
@@ -175,6 +195,10 @@
     display: flex;
     color: #434343;
     margin-top: 280px;
+    &.tabletMilestoneTitle {
+      margin-top: 115px;
+    }
+
     &.completed {
       color: #63a1ff;
       text-shadow: 0px 0px 15px 0px #33a2cc;

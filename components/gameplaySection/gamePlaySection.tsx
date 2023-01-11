@@ -20,8 +20,8 @@ const GameplaySection: FC<{}> = () => {
   };
   const headlineRef: any = useRef();
   const isPhone = useMediaQuery({ query: "(max-width: 768px)" });
-  const isTablet = useMediaQuery({ query: "(max-width: 1180px)" });
-  const isLaptop = useMediaQuery({ query: "(min-width: 1181px)" });
+  const isTablet = useMediaQuery({ query: "(max-width: 991px)" });
+  const isLaptop = useMediaQuery({ query: "(min-width: 992px)" });
   const [domLoaded, setDomLoaded] = useState(false);
   useEffect(() => {
     setDomLoaded(true);

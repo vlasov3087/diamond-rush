@@ -12,9 +12,8 @@ const Milestone: FC<{
   milestones: IMilestone[];
   isFirst?: boolean;
 }> = ({ milestones, isFirst, title, isFinished }) => {
-  const isPhone = useMediaQuery({ query: "(max-width: 768px)" });
-  const isTablet = useMediaQuery({ query: "(max-width: 1180px)" });
-  const isLaptop = useMediaQuery({ query: "(min-width: 1181px)" });
+  const isPhone = useMediaQuery({ query: "(max-width: 560px)" });
+  const isTablet = useMediaQuery({ query: "(max-width: 768px)" });
 
   return (
     <div
@@ -24,11 +23,9 @@ const Milestone: FC<{
     >
       {!isPhone ? (
         <h4
-          className={
-            isFinished
-              ? `${styles.milestoneTitle} ${styles.completed}`
-              : styles.milestoneTitle
-          }
+          className={`${isTablet ? styles.tabletMilestoneTitle : ""} ${
+            styles.milestoneTitle
+          } ${isFinished ? styles.completed : ""}`}
         >
           {title}
         </h4>
@@ -47,7 +44,9 @@ const Milestone: FC<{
         <div
           className={`${styles.checkCircle} ${
             !isFinished ? styles.unfinishedCircle : ""
-          } ${isPhone ? styles.mobileCircle : ""}`}
+          } ${
+            isPhone ? styles.mobileCircle : isTablet ? styles.tabletCircle : ""
+          }`}
         >
           <svg
             width="41"
@@ -76,7 +75,7 @@ const Milestone: FC<{
       <div
         className={`${styles.milestoneCard} ${
           !isFinished ? styles.unfinishedCard : ""
-        } ${isPhone ? styles.mobileCard : ""}`}
+        } ${isPhone ? styles.mobileCard : isTablet ? styles.tabletCard : ""}`}
       >
         <h4>MILESTONE</h4>
         <ul>

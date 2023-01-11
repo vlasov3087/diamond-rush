@@ -47,7 +47,8 @@
   height: 452px;
   padding-bottom: 62px;
   &.mobileSlide {
-    height: 300px;
+    height: 40vh;
+    max-width: calc(100vw - 30px);
   }
 }
 

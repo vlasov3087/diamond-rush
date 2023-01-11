@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useRef } from "react";
 import styles from "./aboutSection.module.scss";
 import { Container, Row, Col } from "react-grid-system";
 import "swiper/css";
@@ -20,12 +20,8 @@ const AboutSection: FC<{}> = () => {
     },
   };
   const isPhone = useMediaQuery({ query: "(max-width: 768px)" });
-  const isTablet = useMediaQuery({ query: "(max-width: 1180px)" });
-  const isLaptop = useMediaQuery({ query: "(min-width: 1181px)" });
-  const [domLoaded, setDomLoaded] = useState(false);
-  useEffect(() => {
-    setDomLoaded(true);
-  }, []);
+  const isTablet = useMediaQuery({ query: "(max-width: 991px)" });
+  const isLaptop = useMediaQuery({ query: "(min-width: 992px)" });
 
   return (
     <div
@@ -38,38 +34,24 @@ const AboutSection: FC<{}> = () => {
               <h2 className={styles.sectionTitle}>WHAT IS DIAMOND RUSH?</h2>
             ) : null}
 
-            {domLoaded && (
-              <Swiper
-                pagination={pagination}
-                modules={[Pagination]}
-                className={`${styles.swiperSlider} ${
-                  isPhone ? styles.mobileSlide : ""
-                }`}
-              >
-                <SwiperSlide className={`${styles.slide} `}>
-                  <video
-                    className={styles.video}
-                    autoPlay
-                    playsInline
-                    muted
-                    loop
-                  >
-                    <source src="/videos/videoSection.mp4" type="video/mp4" />
-                  </video>
-                </SwiperSlide>
-                <SwiperSlide className={styles.slide}>
-                  <video
-                    className={styles.video}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                  >
-                    <source src="/videos/videoSection.mp4" type="video/mp4" />
-                  </video>
-                </SwiperSlide>
-              </Swiper>
-            )}
+            <Swiper
+              pagination={pagination}
+              modules={[Pagination]}
+              className={`${styles.swiperSlider} ${
+                isPhone ? styles.mobileSlide : ""
+              }`}
+            >
+              <SwiperSlide className={`${styles.slide} `}>
+                <video className={styles.video} autoPlay playsInline muted loop>
+                  <source src="/videos/videoSection.mp4" type="video/mp4" />
+                </video>
+              </SwiperSlide>
+              <SwiperSlide className={styles.slide}>
+                <video className={styles.video} autoPlay muted loop playsInline>
+                  <source src="/videos/videoSection.mp4" type="video/mp4" />
+                </video>
+              </SwiperSlide>
+            </Swiper>
           </Col>
           <Col lg={6} offset={{ lg: 1 }} md={12}>
             {isLaptop ? (
