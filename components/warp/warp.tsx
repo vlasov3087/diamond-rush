@@ -1,7 +1,7 @@
 //@ts-nocheck
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
-import { FC, Suspense, useMemo, useRef } from "react";
+import { FC, Suspense, useEffect, useMemo, useRef } from "react";
 import { BoxGeometry, BufferGeometry, MeshBasicMaterial, Points } from "three";
 
 interface Stars {
@@ -54,7 +54,15 @@ const Stars: FC<{ count: number }> = ({ count }) => {
   });
   return (
     <>
-      <points>
+      <points
+        onAfterRender={() => {
+          const loader = document.getElementById("globalLoader");
+          if (loader) {
+            loader.style.opacity = "0";
+            loader.style.visibility = "hidden";
+          }
+        }}
+      >
         <geometry ref={starsGeo} vertices={vertices} colors={colors} />
         <pointsMaterial
           color={"#fff"}
@@ -67,6 +75,7 @@ const Stars: FC<{ count: number }> = ({ count }) => {
   );
 };
 const Warp = () => {
+  useEffect(() => {}, []);
   return (
     <Canvas style={{ background: "black" }}>
       <Suspense fallback={null}>

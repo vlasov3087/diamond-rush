@@ -66,7 +66,11 @@ export default function Home() {
       });
     }
   };
+  const [domLoaded, setDomLoaded] = useState(false);
 
+  useEffect(() => {
+    setDomLoaded(true);
+  }, []);
   return (
     <>
       <Head>
@@ -92,60 +96,62 @@ export default function Home() {
                     scrollTop={scrollTop}
                   />
                 </div>
-                <Swiper
-                  direction={"vertical"}
-                  touchEventsTarget={"container"}
-                  speed={200}
-                  parallax={true}
-                  autoplay={false}
-                  mousewheel={{
-                    sensitivity: 0.00001,
-                    thresholdDelta: 80,
-                  }}
-                  followFinger={false}
-                  shortSwipes={false}
-                  preventInteractionOnTransition={true}
-                  allowTouchMove={false}
-                  initialSlide={activePage}
-                  onSwiper={(swiper) => setSwiper(swiper)}
-                  onSlideChange={(e) => {
-                    setActiveSlide(e.activeIndex);
-                  }}
-                  onSlideChangeTransitionEnd={handleScrollInside}
-                  effect={"fade"}
-                  fadeEffect={{
-                    crossFade: true,
-                  }}
-                  modules={[Mousewheel, Scrollbar, EffectFade]}
-                  className="swiper-container"
-                >
-                  <SwiperSlide>
-                    <div className="panel" id="home">
-                      <HeroSection />
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <div className="panel" id="video">
-                      <VideoSection />
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <div className="panel" id="about">
-                      <AboutSection />
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide>
-                    <div className="panel" id="gameplay">
-                      <GameplaySection />
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide draggable={false} style={{ overflow: "auto" }}>
-                    <div className="panel" id="roadmap">
-                      <RoadmapSection />
-                      <FooterSection />
-                    </div>
-                  </SwiperSlide>
-                </Swiper>
+                {domLoaded && (
+                  <Swiper
+                    direction={"vertical"}
+                    touchEventsTarget={"container"}
+                    speed={200}
+                    parallax={true}
+                    autoplay={false}
+                    mousewheel={{
+                      sensitivity: 0.00001,
+                      thresholdDelta: 80,
+                    }}
+                    followFinger={false}
+                    shortSwipes={false}
+                    preventInteractionOnTransition={true}
+                    allowTouchMove={false}
+                    initialSlide={activePage}
+                    onSwiper={(swiper) => setSwiper(swiper)}
+                    onSlideChange={(e) => {
+                      setActiveSlide(e.activeIndex);
+                    }}
+                    onSlideChangeTransitionEnd={handleScrollInside}
+                    effect={"fade"}
+                    fadeEffect={{
+                      crossFade: true,
+                    }}
+                    modules={[Mousewheel, Scrollbar, EffectFade]}
+                    className="swiper-container"
+                  >
+                    <SwiperSlide>
+                      <div className="panel" id="home">
+                        <HeroSection />
+                      </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <div className="panel" id="video">
+                        <VideoSection />
+                      </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <div className="panel" id="about">
+                        <AboutSection />
+                      </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <div className="panel" id="gameplay">
+                        <GameplaySection />
+                      </div>
+                    </SwiperSlide>
+                    <SwiperSlide draggable={false} style={{ overflow: "auto" }}>
+                      <div className="panel" id="roadmap">
+                        <RoadmapSection />
+                        <FooterSection />
+                      </div>
+                    </SwiperSlide>
+                  </Swiper>
+                )}
               </>
             ) : (
               <>
