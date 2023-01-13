@@ -1,14 +1,15 @@
-import { FC, useEffect, useLayoutEffect, useState } from "react";
-import { useEventListener } from "../../hooks/useEventListener";
+import { FC, useEffect,  useState } from "react";
 
 const ScrollIndicator: FC<any> = ({ activeSlide, scrollTop, isMobile }) => {
   const [pageScroll, setPageScroll] = useState(0);
-  useLayoutEffect(() => {
-    const scroll = document.querySelector(".scrollCanvas");
-    scroll?.addEventListener("scroll", () => {
-      const scrollTop = (scroll.scrollTop / scroll.scrollHeight) * 100;
-      setPageScroll(scrollTop ? scrollTop : 0);
-    });
+  useEffect(() => {
+    setTimeout(() => {
+      const scroll = document.querySelector(".scrollCanvas");
+      scroll?.addEventListener("scroll", () => {
+        const scrollTop = (scroll.scrollTop / scroll.scrollHeight) * 100;
+        setPageScroll(scrollTop ? scrollTop : 0);
+      });
+    }, 0);
   }, []);
   // const handleScroll = (): void => {
   //   const windowTop: number = window.scrollY;

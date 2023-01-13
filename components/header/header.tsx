@@ -1,10 +1,13 @@
-import React, { useState, FC, useLayoutEffect } from "react";
+import React, { useState, FC, useLayoutEffect, useEffect } from "react";
 import Link from "next/link";
 import { useEventListener } from "../../hooks/useEventListener";
 import { useSpring } from "react-spring";
 import HamburgerMenu from "./hamburgerMenu";
 import MobileNav from "./mobileNav";
 import { useMediaQuery } from "react-responsive";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const animationConfig = {
   mass: 1,
@@ -18,14 +21,15 @@ const Header: FC<{
   setActivePage: (num: number) => void;
 }> = ({ setActivePage, activeSlide }) => {
   const [navShadow, setShadow] = useState<"navShadow" | "">("");
-  useLayoutEffect(() => {
-    const scroll = document.querySelector(".scrollCanvas");
-    scroll?.addEventListener("scroll", () => {
-      const windowTop: number = scroll?.scrollTop as number;
-      console.log(windowTop);
-
-      windowTop > 90 ? setShadow("navShadow") : setShadow("");
-    });
+  useEffect(() => {
+    setTimeout(() => {
+      const scroll = document.querySelector(".scrollCanvas");
+      scroll?.addEventListener("scroll", () => {
+        const windowTop: number = scroll?.scrollTop as number;
+        ScrollTrigger.refresh();
+        windowTop > 90 ? setShadow("navShadow") : setShadow("");
+      });
+    }, 0);
   }, []);
   const handleClick = () => {
     api.start({

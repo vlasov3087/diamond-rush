@@ -56,7 +56,6 @@ export default function Home() {
       swiper.allowTouchMove = false;
 
       activeSlide.addEventListener("scroll", () => {
-        console.log(activeSlide.scrollTop);
         setScrollTop(activeSlide.scrollTop);
         if (activeSlide.scrollTop <= 0) {
           swiper.mousewheel.enable();

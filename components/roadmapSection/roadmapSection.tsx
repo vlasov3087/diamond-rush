@@ -1,11 +1,11 @@
-import { FC, useEffect, useRef } from "react";
+import { FC, useEffect, useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import styles from "./roadmapSection.module.scss";
-import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { Container, Row, Col } from "react-grid-system";
 import Milestone from "./milestone";
 import { useMediaQuery } from "react-responsive";
+import { gsap } from "gsap";
 gsap.registerPlugin(ScrollTrigger);
 
 const RoadmapSection: FC<{}> = () => {
@@ -110,7 +110,25 @@ const RoadmapSection: FC<{}> = () => {
     },
   ];
   const isTablet = useMediaQuery({ query: "(max-width: 1180px)" });
+  useEffect(() => {
+    setTimeout(() => {
+      const boxes = gsap.utils.toArray(".milestoneCard");
 
+      boxes.forEach((box: any, i) => {
+        const anim = gsap.fromTo(
+          box,
+          { autoAlpha: 0, y: 50 },
+          { duration: 1, autoAlpha: 1, y: 0 }
+        );
+        ScrollTrigger.create({
+          trigger: box,
+          animation: anim,
+          toggleActions: "play none none none",
+          once: true,
+        });
+      });
+    }, 0);
+  }, []);
   return (
     <div
       className={`${styles.section} ${isTablet ? styles.mobileSection : ""}`}
@@ -120,7 +138,7 @@ const RoadmapSection: FC<{}> = () => {
           <Col lg={4} md={12}>
             <h2>OUR LUCKY ROADMAP</h2>
           </Col>
-          <Col lg={8} md={12}>
+          <Col lg={8} md={12} className="scroller">
             {milestones.map((item) => {
               return (
                 <Milestone

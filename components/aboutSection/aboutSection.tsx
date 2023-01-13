@@ -8,6 +8,8 @@ import dynamic from "next/dynamic";
 import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useMediaQuery } from "react-responsive";
+import ReactPlayer from "react-player/lazy";
+
 const AboutSection: FC<{}> = () => {
   const pagination = {
     clickable: true,
@@ -42,28 +44,80 @@ const AboutSection: FC<{}> = () => {
               }`}
             >
               <SwiperSlide className={`${styles.slide} `}>
-                <video
-                  preload="auto"
-                  className={styles.video}
-                  autoPlay
-                  playsInline
+                <ReactPlayer
+                  url="/videos/videoSection.mp4"
+                  playsinline
                   muted
                   loop
-                >
-                  <source src="/videos/videoSection.mp4" type="video/mp4" />
-                </video>
+                  light
+                  width="100%"
+                  playIcon={
+                    <svg
+                      width="72"
+                      height="72"
+                      viewBox="0 0 72 72"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="35.9999"
+                        cy="35.9994"
+                        r="34.1962"
+                        stroke="white"
+                        strokeWidth="2.92276"
+                      />
+                      <path
+                        d="M49.7369 35.7846C50.1266 36.0096 50.1266 36.5721 49.7369 36.7971L29.1315 48.6936C28.7418 48.9186 28.2547 48.6374 28.2547 48.1874L28.2547 24.3943C28.2547 23.9443 28.7418 23.663 29.1315 23.888L49.7369 35.7846Z"
+                        fill="white"
+                      />
+                    </svg>
+                  }
+                  height="100%"
+                  playing
+                />
+                {/* <video */}
+                {/*   preload="auto" */}
+                {/*   className={styles.video} */}
+                {/*   autoPlay */}
+                {/*   playsInline */}
+                {/*   muted */}
+                {/*   loop */}
+                {/* > */}
+                {/*   <source src="/videos/videoSection.mp4" type="video/mp4" /> */}
+                {/* </video> */}
               </SwiperSlide>
               <SwiperSlide className={styles.slide}>
-                <video
-                  className={styles.video}
-                  preload="auto"
-                  autoPlay
+                <ReactPlayer
+                  url="/videos/videoSection.mp4"
+                  playsinline
                   muted
                   loop
-                  playsInline
-                >
-                  <source src="/videos/videoSection.mp4" type="video/mp4" />
-                </video>
+                  playIcon={
+                    <svg
+                      width="72"
+                      height="72"
+                      viewBox="0 0 72 72"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="35.9999"
+                        cy="35.9994"
+                        r="34.1962"
+                        stroke="white"
+                        strokeWidth="2.92276"
+                      />
+                      <path
+                        d="M49.7369 35.7846C50.1266 36.0096 50.1266 36.5721 49.7369 36.7971L29.1315 48.6936C28.7418 48.9186 28.2547 48.6374 28.2547 48.1874L28.2547 24.3943C28.2547 23.9443 28.7418 23.663 29.1315 23.888L49.7369 35.7846Z"
+                        fill="white"
+                      />
+                    </svg>
+                  }
+                  light
+                  width="100%"
+                  height="100%"
+                  playing
+                />
               </SwiperSlide>
             </Swiper>
           </Col>

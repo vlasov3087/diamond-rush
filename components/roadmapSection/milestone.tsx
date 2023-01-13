@@ -1,6 +1,13 @@
-import React, { FC } from "react";
+import React, {
+  FC,
+  MutableRefObject,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { useMediaQuery } from "react-responsive";
 import styles from "./roadmapSection.module.scss";
+import { animated, useSpring } from "react-spring";
 
 interface IMilestone {
   title: string;
@@ -14,7 +21,7 @@ const Milestone: FC<{
 }> = ({ milestones, isFirst, title, isFinished }) => {
   const isPhone = useMediaQuery({ query: "(max-width: 560px)" });
   const isTablet = useMediaQuery({ query: "(max-width: 768px)" });
-
+  const ref: any = useRef<HTMLDivElement>();
   return (
     <div
       className={`${styles.milestoneItem} ${
@@ -72,10 +79,13 @@ const Milestone: FC<{
           </svg>
         </div>
       </div>
-      <div
+      <animated.div
         className={`${styles.milestoneCard} ${
           !isFinished ? styles.unfinishedCard : ""
-        } ${isPhone ? styles.mobileCard : isTablet ? styles.tabletCard : ""}`}
+        } ${
+          isPhone ? styles.mobileCard : isTablet ? styles.tabletCard : ""
+        } milestoneCard`}
+        ref={ref}
       >
         <h4>MILESTONE</h4>
         <ul>
@@ -90,9 +100,34 @@ const Milestone: FC<{
             );
           })}
         </ul>
-      </div>
+      </animated.div>
     </div>
   );
 };
-
+function useOnScreen<T extends Element>(
+  ref: MutableRefObject<T>,
+  rootMargin: string = "0px"
+): boolean {
+  // State and setter for storing whether element is visible
+  const [isIntersecting, setIntersecting] = useState<boolean>(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Update our state when observer callback fires
+        setIntersecting(entry.isIntersecting);
+      },
+      {
+        rootMargin,
+      }
+    );
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+    return () => {
+      observer.unobserve(ref.current);
+    };
+  }, []); // Empty array ensures that effect is only run on mount and unmount
+  console.log(isIntersecting);
+  return isIntersecting;
+}
 export default Milestone;
