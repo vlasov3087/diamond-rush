@@ -2,7 +2,7 @@ import { FC, useEffect } from "react";
 import { useTransition, animated } from "react-spring";
 import { easings } from "@react-spring/web";
 
-const MobileNav: FC<any> = ({ open, toggle }) => {
+const MobileNav: FC<any> = ({ open, handleClick }) => {
   useEffect(() => {
     if (open) {
       document.body.style.overflowY = "hidden";
@@ -41,7 +41,7 @@ const MobileNav: FC<any> = ({ open, toggle }) => {
               <a
                 href="#home"
                 onClick={() => {
-                  toggle(false);
+                  handleClick();
                 }}
               >
                 HOME
@@ -50,7 +50,7 @@ const MobileNav: FC<any> = ({ open, toggle }) => {
             <li
               className="list-item"
               onClick={() => {
-                toggle(false);
+                handleClick();
               }}
             >
               <a href="#video">VIDEO</a>
@@ -58,7 +58,7 @@ const MobileNav: FC<any> = ({ open, toggle }) => {
             <li
               className="list-item"
               onClick={() => {
-                toggle(false);
+                handleClick();
               }}
             >
               <a href="#about">ABOUT</a>
@@ -66,7 +66,7 @@ const MobileNav: FC<any> = ({ open, toggle }) => {
             <li
               className="list-item"
               onClick={() => {
-                toggle(false);
+                handleClick();
               }}
             >
               <a href="#gameplay">GAMEPLAY</a>
@@ -74,7 +74,7 @@ const MobileNav: FC<any> = ({ open, toggle }) => {
             <li
               className="list-item"
               onClick={() => {
-                toggle(false);
+                handleClick();
               }}
             >
               <a href="#about">NFT</a>
@@ -83,7 +83,7 @@ const MobileNav: FC<any> = ({ open, toggle }) => {
               <a
                 href="#roadmap"
                 onClick={() => {
-                  toggle(false);
+                  handleClick();
                 }}
               >
                 ROADMAP
@@ -93,7 +93,7 @@ const MobileNav: FC<any> = ({ open, toggle }) => {
         </div>
         <animated.div
           className="content-background"
-          style={{ opacity}}
+          style={{ opacity }}
         ></animated.div>
       </animated.nav>
     ) : null;

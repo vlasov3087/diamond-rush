@@ -28,7 +28,7 @@ const VideoSection: FC<{}> = () => {
           </Col>
         </Row>
       </Container>
-      <video className={styles.video} autoPlay muted playsInline loop>
+      <video preload="auto" className={styles.video} autoPlay muted playsInline loop>
         <source src="/videos/videoSection.mp4" type="video/mp4" />
       </video>
     </div>

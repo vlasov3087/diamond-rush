@@ -3,11 +3,9 @@ import styles from "./gameplaySection.module.scss";
 import { Container, Row, Col } from "react-grid-system";
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/effect-fade";
-
 
 // import required modules
-import { EffectFade, Pagination } from "swiper";
+import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useMediaQuery } from "react-responsive";
 const GameplaySection: FC<{}> = () => {
@@ -43,11 +41,7 @@ const GameplaySection: FC<{}> = () => {
             {domLoaded && (
               <Swiper
                 pagination={pagination}
-                modules={[Pagination,EffectFade]}
-                effect={"fade"}
-                fadeEffect={{
-                  crossFade: true,
-                }}
+                modules={[Pagination]}
                 className={`${styles.swiperSlider} ${
                   isPhone ? styles.mobileSlide : ""
                 }`}
@@ -59,12 +53,14 @@ const GameplaySection: FC<{}> = () => {
                     muted
                     playsInline
                     loop
+                    preload="auto"
                   >
                     <source src="/videos/videoSection.mp4" type="video/mp4" />
                   </video>
                 </SwiperSlide>
                 <SwiperSlide className={styles.slide}>
                   <video
+                    preload="auto"
                     className={styles.video}
                     autoPlay
                     muted

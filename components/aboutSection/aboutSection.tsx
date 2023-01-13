@@ -3,10 +3,9 @@ import styles from "./aboutSection.module.scss";
 import { Container, Row, Col } from "react-grid-system";
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/effect-fade";
-
+import dynamic from "next/dynamic";
 // import required modules
-import { EffectFade, Pagination } from "swiper";
+import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useMediaQuery } from "react-responsive";
 const AboutSection: FC<{}> = () => {
@@ -37,22 +36,32 @@ const AboutSection: FC<{}> = () => {
 
             <Swiper
               pagination={pagination}
-              modules={[Pagination, EffectFade]}
-              effect={"fade"}
-              fadeEffect={{
-                crossFade: true,
-              }}
+              modules={[Pagination]}
               className={`${styles.swiperSlider} ${
                 isPhone ? styles.mobileSlide : ""
               }`}
             >
               <SwiperSlide className={`${styles.slide} `}>
-                <video className={styles.video} autoPlay playsInline muted loop>
+                <video
+                  preload="auto"
+                  className={styles.video}
+                  autoPlay
+                  playsInline
+                  muted
+                  loop
+                >
                   <source src="/videos/videoSection.mp4" type="video/mp4" />
                 </video>
               </SwiperSlide>
               <SwiperSlide className={styles.slide}>
-                <video className={styles.video} autoPlay muted loop playsInline>
+                <video
+                  className={styles.video}
+                  preload="auto"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                >
                   <source src="/videos/videoSection.mp4" type="video/mp4" />
                 </video>
               </SwiperSlide>

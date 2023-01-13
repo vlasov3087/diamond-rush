@@ -27,6 +27,58 @@ const Header: FC<{
       windowTop > 90 ? setShadow("navShadow") : setShadow("");
     });
   }, []);
+  const handleClick = () => {
+    api.start({
+      to: open
+        ? [
+            {
+              transformTop: "translate(-6px, 18.5px) rotate(0deg)",
+              transformMiddle: "translate(-6px, 0px) rotate(0deg)",
+              transformBottom: "translate(-6px, -18.5px) rotate(0deg)",
+              widthTop: "28px",
+              widthBottom: "28px",
+              config: { clamp: true },
+            },
+            {
+              transformTop: "translate(-6px, 10px) rotate(0deg)",
+              transformMiddle: "translate(-6px, 0px) rotate(0deg)",
+              transformBottom: "translate(-6px, -10px) rotate(0deg)",
+              widthTop: "28px",
+              widthBottom: "28px",
+              config: {
+                clamp: false,
+                friction: animationConfig.frictionLight,
+                tension: animationConfig.tension,
+              },
+              delay: animationConfig.delay,
+            },
+          ]
+        : [
+            {
+              transformTop: "translate(-6px, 18.5px) rotate(0deg)",
+              transformMiddle: "translate(-6px, 0px) rotate(0deg)",
+              transformBottom: "translate(-6px, -18.5px) rotate(0deg)",
+              widthTop: "28px",
+              widthBottom: "28px",
+              config: { clamp: true },
+            },
+            {
+              transformTop: "translate(-6px, 18.5px) rotate(45deg)",
+              transformMiddle: "translate(-6px, 0px) rotate(45deg)",
+              transformBottom: "translate(-6px, -18.5px) rotate(-45deg)",
+              widthTop: "28px",
+              widthBottom: "28px",
+              config: {
+                clamp: false,
+                friction: animationConfig.frictionLight,
+                tension: animationConfig.tension,
+              },
+              delay: animationConfig.delay,
+            },
+          ],
+    });
+    toggle((prev: any) => !prev);
+  };
 
   const [open, toggle] = useState(false);
   const [styles, api] = useSpring(() => ({
@@ -71,13 +123,7 @@ const Header: FC<{
               )}
             </Link>
             {isPhone ? (
-              <HamburgerMenu
-                open={open}
-                toggle={toggle}
-                styles={styles}
-                api={api}
-                animationConfig={animationConfig}
-              />
+              <HamburgerMenu styles={styles} handleClick={handleClick} />
             ) : (
               <ul className="nav-items">
                 <li>
@@ -155,7 +201,7 @@ const Header: FC<{
           </nav>
         </div>
       </header>
-      <MobileNav open={open} toggle={toggle} />
+      <MobileNav open={open} handleClick={handleClick} />
     </>
   );
 };
