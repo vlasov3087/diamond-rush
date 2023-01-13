@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { Container, Row, Col } from "react-grid-system";
 import { useMediaQuery } from "react-responsive";
 import ReactPlayer from "react-player/lazy";
+import Spinner from "../spinner";
 gsap.registerPlugin(ScrollTrigger);
 
 const VideoSection: FC<{}> = () => {
@@ -38,6 +39,7 @@ const VideoSection: FC<{}> = () => {
         light={isTablet ? "videoThumbnail.png" : false}
         width={"100%"}
         height={isTablet ? "300px" : "100%"}
+        fallback={<Spinner />}
         playIcon={
           <svg
             width="72"

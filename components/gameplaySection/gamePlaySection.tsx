@@ -9,6 +9,7 @@ import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useMediaQuery } from "react-responsive";
 import ReactPlayer from "react-player/lazy";
+import Spinner from "../spinner";
 const GameplaySection: FC<{}> = () => {
   const pagination = {
     clickable: true,
@@ -76,6 +77,7 @@ const GameplaySection: FC<{}> = () => {
                     loop
                     light={"videoThumbnail.png"}
                     width="100%"
+                    fallback={<Spinner />}
                     height="100%"
                     playing
                   />
@@ -83,6 +85,7 @@ const GameplaySection: FC<{}> = () => {
                 <SwiperSlide className={styles.slide}>
                   <ReactPlayer
                     url="/videos/videoSection.mp4"
+                    fallback={<Spinner />}
                     playsinline
                     muted
                     loop
