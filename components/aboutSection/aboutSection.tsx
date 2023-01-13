@@ -49,7 +49,7 @@ const AboutSection: FC<{}> = () => {
                   playsinline
                   muted
                   loop
-                  light
+                  light={"videoThumbnail.png"}
                   width="100%"
                   playIcon={
                     <svg
@@ -113,7 +113,7 @@ const AboutSection: FC<{}> = () => {
                       />
                     </svg>
                   }
-                  light
+                  light={"videoThumbnail.png"}
                   width="100%"
                   height="100%"
                   playing

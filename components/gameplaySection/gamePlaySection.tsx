@@ -74,7 +74,7 @@ const GameplaySection: FC<{}> = () => {
                     }
                     muted
                     loop
-                    light
+                    light={"videoThumbnail.png"}
                     width="100%"
                     height="100%"
                     playing
@@ -107,7 +107,7 @@ const GameplaySection: FC<{}> = () => {
                         />
                       </svg>
                     }
-                    light
+                    light={"videoThumbnail.png"}
                     width="100%"
                     height="100%"
                     playing

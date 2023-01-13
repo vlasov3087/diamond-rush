@@ -35,7 +35,7 @@ const VideoSection: FC<{}> = () => {
         muted
         loop
         className={styles.video}
-        light={isTablet}
+        light={isTablet ? "videoThumbnail.png" : false}
         width={"100%"}
         height={isTablet ? "300px" : "100%"}
         playIcon={
