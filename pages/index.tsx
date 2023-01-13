@@ -4,7 +4,6 @@ import FooterSection from "../components/footerSection";
 import Header from "../components/header";
 import HeroSection from "../components/heroSection";
 import RoadmapSection from "../components/roadmapSection/roadmapSection";
-import ScrollIndicator from "../components/scrollIndicator/scrollIndicator";
 import styles from "../styles/Home.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperEvent } from "swiper";
@@ -19,6 +18,7 @@ import { ScreenClassProvider, setConfiguration } from "react-grid-system";
 import { useMediaQuery } from "react-responsive";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import ScrollIndicator from "../components/scrollIndicator/scrollIndicator";
 gsap.registerPlugin(ScrollTrigger);
 
 setConfiguration({

@@ -7,7 +7,7 @@ const HamburgerMenu: FC<any> = ({
 }) => {
 
   return (
-    <button className="btn" onClick={() => handleClick()}>
+    <button aria-label="Hamburger button" className="btn" onClick={() => handleClick()}>
       <animated.div
         style={{ transform: styles.transformTop, width: styles.widthTop }}
         className="menu-line"

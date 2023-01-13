@@ -2,7 +2,6 @@
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 import { FC, Suspense, useEffect, useMemo, useRef } from "react";
-import { BoxGeometry, BufferGeometry, MeshBasicMaterial, Points } from "three";
 
 interface Stars {
   count: number;

@@ -21,7 +21,13 @@ const FooterSection: FC<{}> = () => {
             </div>
             <div className={styles.copyright}>
               {!isPhone ? (
-                <img className="logo-image" src="/images/logo.svg" alt="logo" />
+                <Image
+                  className="logo-image"
+                  src="/images/logo.svg"
+                  height={60}
+                  width={160}
+                  alt="logo"
+                />
               ) : null}
               {!isPhone ? (
                 <p>Copyright ⓒ 2022 Diamon Rush. All rights reserved.</p>
@@ -35,9 +41,11 @@ const FooterSection: FC<{}> = () => {
             </form>
             <div className={styles.mediaLinks}>
               <a href="https://t.me" target="_blank" rel="noopener noreferrer">
-                <img
+                <Image
                   className="logo-image"
                   src="/images/telegram.svg"
+                  height={32}
+                  width={32}
                   alt="logo"
                 />
               </a>
@@ -46,7 +54,9 @@ const FooterSection: FC<{}> = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img
+                <Image
+                  width={32}
+                  height={32}
                   className="logo-image"
                   src="/images/youtube.svg"
                   alt="logo"
@@ -57,7 +67,9 @@ const FooterSection: FC<{}> = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img
+                <Image
+                  width={32}
+                  height={32}
                   className="logo-image"
                   src="/images/twitter.svg"
                   alt="logo"
@@ -68,7 +80,9 @@ const FooterSection: FC<{}> = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img
+                <Image
+                  width={32}
+                  height={32}
                   className="logo-image"
                   src="/images/discord.svg"
                   alt="logo"
