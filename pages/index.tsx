@@ -17,6 +17,9 @@ import AboutSection from "../components/aboutSection";
 import GameplaySection from "../components/gameplaySection";
 import { ScreenClassProvider, setConfiguration } from "react-grid-system";
 import { useMediaQuery } from "react-responsive";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 setConfiguration({
   breakpoints: [576, 768, 992, 1180, 1180, 1180],
@@ -57,6 +60,8 @@ export default function Home() {
 
       activeSlide.addEventListener("scroll", () => {
         setScrollTop(activeSlide.scrollTop);
+        ScrollTrigger.refresh();
+
         if (activeSlide.scrollTop <= 0) {
           swiper.mousewheel.enable();
 
