@@ -85,7 +85,7 @@ export default function Home() {
         <title>Diamond Rush</title>
         <meta
           name="description"
-          content="Diamond Rush is a Free-to-Play game where you can explore new horizons and earn crypto while playing! In Diamond Rush you will be able to create your own unique character from the bottom to discover an exciting metaverse and communicate with other explorers."
+          content="Diamond Rush is a Free-to-Play game where you can explore new horizons and earn crypto while playing!"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
