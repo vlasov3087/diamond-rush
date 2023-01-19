@@ -44,6 +44,12 @@ export default function Home() {
       swiper.allowTouchMove = true;
     }
   }, [activePage]);
+  function preventScroll(e: any) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    return false;
+  }
   const handleScrollInside = (swiper: SwiperEvent) => {
     var activeIndex = swiper.activeIndex;
     var activeSlide = swiper.slides[activeIndex];
@@ -52,20 +58,19 @@ export default function Home() {
     const hasVerticalScrollbar = scrollHeight - clientHeight;
 
     if (hasVerticalScrollbar) {
-      const scrollDifferenceTop =
-        activeSlide.scrollHeight - activeSlide.clientHeight;
-      if (activeSlide.scrollTop === 0) activeSlide.scrollTop += 1;
-      if (activeSlide.scrollTop === scrollDifferenceTop)
-        activeSlide.scrollTop -= 2;
       swiper.mousewheel.disable();
       swiper.allowTouchMove = false;
-
+      activeSlide.addEventListener("wheel", preventScroll);
+      setTimeout(() => {
+        activeSlide.removeEventListener("wheel", preventScroll);
+      }, 400);
       activeSlide.addEventListener("scroll", () => {
         setScrollTop(activeSlide.scrollTop);
+
         ScrollTrigger.refresh();
 
         if (activeSlide.scrollTop <= 0) {
-          swiper.slideTo(activeIndex-1);
+          swiper.slideTo(activeIndex - 1);
 
           swiper.mousewheel.enable();
 
@@ -155,7 +160,7 @@ export default function Home() {
                   <Swiper
                     direction={"vertical"}
                     touchEventsTarget={"container"}
-                    speed={200}
+                    speed={400}
                     parallax={true}
                     autoplay={false}
                     mousewheel={{
