@@ -20,6 +20,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import ScrollIndicator from "../components/scrollIndicator/scrollIndicator";
 import { NextSeo } from "next-seo";
+import DiscordButton from "../components/discordButton/discordButton";
 gsap.registerPlugin(ScrollTrigger);
 
 setConfiguration({
@@ -64,6 +65,8 @@ export default function Home() {
         ScrollTrigger.refresh();
 
         if (activeSlide.scrollTop <= 0) {
+          swiper.slideTo(activeIndex-1);
+
           swiper.mousewheel.enable();
 
           swiper.allowTouchMove = true;
@@ -126,6 +129,7 @@ export default function Home() {
       />
       <ScreenClassProvider>
         <Header setActivePage={setActivePage} activeSlide={activeSlide} />
+        <DiscordButton />
         <div className={`container ${styles.container}`}>
           <div
             className={`${styles.mainSections}  ${
@@ -156,7 +160,7 @@ export default function Home() {
                     autoplay={false}
                     mousewheel={{
                       sensitivity: 0.00001,
-                      thresholdDelta: 80,
+                      thresholdDelta: 40,
                     }}
                     followFinger={false}
                     shortSwipes={false}

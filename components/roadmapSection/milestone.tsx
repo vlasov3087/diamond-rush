@@ -1,13 +1,7 @@
-import React, {
-  FC,
-  MutableRefObject,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { FC, useRef } from "react";
 import { useMediaQuery } from "react-responsive";
 import styles from "./roadmapSection.module.scss";
-import { animated, useSpring } from "react-spring";
+import { animated } from "react-spring";
 
 interface IMilestone {
   title: string;
@@ -30,14 +24,14 @@ const Milestone: FC<{
     >
       {!isPhone ? (
         <h4
-          className={`${isTablet ? styles.tabletMilestoneTitle : ""} ${
+          className={`step ${isTablet ? styles.tabletMilestoneTitle : ""} ${
             styles.milestoneTitle
           } ${isFinished ? styles.completed : ""}`}
         >
           {title}
         </h4>
       ) : null}
-      <div className={styles.circleWrapper}>
+      <div className={`${styles.circleWrapper}`}>
         <div
           className={`${styles.line} ${
             !isFinished ? styles.unfinishedLine : ""
@@ -49,7 +43,7 @@ const Milestone: FC<{
           }}
         ></div>
         <div
-          className={`${styles.checkCircle} ${
+          className={`step ${styles.checkCircle} ${
             !isFinished ? styles.unfinishedCircle : ""
           } ${
             isPhone ? styles.mobileCircle : isTablet ? styles.tabletCircle : ""
@@ -85,7 +79,6 @@ const Milestone: FC<{
         } ${
           isPhone ? styles.mobileCard : isTablet ? styles.tabletCard : ""
         } milestoneCard`}
-        ref={ref}
       >
         <h4>MILESTONE</h4>
         <ul>
@@ -104,30 +97,4 @@ const Milestone: FC<{
     </div>
   );
 };
-function useOnScreen<T extends Element>(
-  ref: MutableRefObject<T>,
-  rootMargin: string = "0px"
-): boolean {
-  // State and setter for storing whether element is visible
-  const [isIntersecting, setIntersecting] = useState<boolean>(false);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // Update our state when observer callback fires
-        setIntersecting(entry.isIntersecting);
-      },
-      {
-        rootMargin,
-      }
-    );
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-    return () => {
-      observer.unobserve(ref.current);
-    };
-  }, []); // Empty array ensures that effect is only run on mount and unmount
-  console.log(isIntersecting);
-  return isIntersecting;
-}
 export default Milestone;

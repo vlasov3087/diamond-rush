@@ -1,5 +1,4 @@
-import { FC, useEffect, useLayoutEffect, useRef } from "react";
-import Image from "next/image";
+import { FC, useEffect } from "react";
 import styles from "./roadmapSection.module.scss";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { Container, Row, Col } from "react-grid-system";
@@ -117,8 +116,24 @@ const RoadmapSection: FC<{}> = () => {
       boxes.forEach((box: any, i) => {
         const anim = gsap.fromTo(
           box,
-          { autoAlpha: 0, y: 50 },
-          { duration: 1, autoAlpha: 1, y: 0 }
+          { autoAlpha: 0, x: 30 },
+          { duration: 0.5, autoAlpha: 1, x: 0 }
+        );
+        ScrollTrigger.create({
+          trigger: box,
+          animation: anim,
+          toggleActions: "play none none none",
+          once: true,
+        });
+      });
+
+      const steps = gsap.utils.toArray(".step");
+
+      steps.forEach((box: any, i) => {
+        const anim = gsap.fromTo(
+          box,
+          { autoAlpha: 0, y: 10 },
+          { duration: 0.7, autoAlpha: 1, y: 0 }
         );
         ScrollTrigger.create({
           trigger: box,

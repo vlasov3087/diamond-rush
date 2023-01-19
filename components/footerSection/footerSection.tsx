@@ -40,7 +40,7 @@ const FooterSection: FC<{}> = () => {
               <button>SUBSCRIBE</button>
             </form>
             <div className={styles.mediaLinks}>
-              <a href="https://t.me" target="_blank" rel="noopener noreferrer">
+              <a href="https://t.me/diamondrushNFT" target="_blank" rel="noopener noreferrer">
                 <Image
                   className="logo-image"
                   src="/images/telegram.svg"
@@ -76,7 +76,7 @@ const FooterSection: FC<{}> = () => {
                 />
               </a>
               <a
-                href="https://discord.com"
+                href="https://discord.gg/rGJBwQfkHe"
                 target="_blank"
                 rel="noopener noreferrer"
               >
