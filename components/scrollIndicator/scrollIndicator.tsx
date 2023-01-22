@@ -1,4 +1,4 @@
-import { FC, useEffect,  useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 const ScrollIndicator: FC<any> = ({ activeSlide, scrollTop, isMobile }) => {
   const [pageScroll, setPageScroll] = useState(0);
@@ -20,8 +20,9 @@ const ScrollIndicator: FC<any> = ({ activeSlide, scrollTop, isMobile }) => {
     <div
       style={{
         height: "100%",
-        width: 3,
+        width: 4,
         overflow: "hidden",
+        borderRadius: 5,
         position: "relative",
         background: "#3b3a3b",
         boxShadow:
@@ -38,7 +39,6 @@ const ScrollIndicator: FC<any> = ({ activeSlide, scrollTop, isMobile }) => {
         ></div>
       ) : (
         <>
-          {" "}
           <div
             className={`scroll  ${
               activeSlide < 1 || activeSlide > 2 ? "active" : ""
@@ -47,20 +47,20 @@ const ScrollIndicator: FC<any> = ({ activeSlide, scrollTop, isMobile }) => {
               transition: activeSlide === 4 ? "none" : undefined,
               height:
                 activeSlide === 4
-                  ? `${40 + scrollTop / 30}%`
-                  : `${(activeSlide + 1) * 10}%`,
+                  ? `${60 + scrollTop / 40}%`
+                  : `${(activeSlide + 1) * 15}%`,
             }}
           ></div>
           <div
             className={`scroll yellow ${activeSlide === 1 ? "active" : ""}`}
             style={{
-              height: `${(activeSlide + 1) * 10}%`,
+              height: `${(activeSlide + 1) * 15}%`,
             }}
           ></div>
           <div
             className={`scroll pink ${activeSlide === 2 ? "active" : ""}`}
             style={{
-              height: `${(activeSlide + 1) * 10}%`,
+              height: `${(activeSlide + 1) * 15}%`,
             }}
           ></div>
         </>

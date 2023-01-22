@@ -109,8 +109,8 @@ body {
 }
 
 .scroll {
-  width: 3px;
-  transition: all 0.3s ease;
+  width: 4px;
+  transition: opacity 0.4s ease-in, height 0.8s cubic-bezier(0.19, 1, 0.22, 1);
   background: linear-gradient(125.06deg, #0061ff -2.31%, #60efff 97.12%);
   position: absolute;
   left: 0;
@@ -134,3 +134,16 @@ body {
   line-height: 28px;
   color: #ffffff;
 }
+
+/* .swiper-fade { */
+/*   .swiper-slide { */
+/*     .panel { */
+/*       transform: translateY(100px) !important; */
+/*     } */
+/*   } */
+/*   .swiper-slide-visible { */
+/*     .panel { */
+/*       transform: translateY(0) !important; */
+/*     } */
+/*   } */
+/* } */

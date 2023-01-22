@@ -1,15 +1,10 @@
 {
-    "name": "Diamond Rush",
-    "short_name": "Diamond Rush",
+    "name": "",
+    "short_name": "",
     "icons": [
         {
-            "src": "/android-chrome-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "/android-chrome-512x512.png",
-            "sizes": "512x512",
+            "src": "/favicon/android-chrome-144x144.png",
+            "sizes": "144x144",
             "type": "image/png"
         }
     ],

@@ -149,11 +149,11 @@ const RoadmapSection: FC<{}> = () => {
       className={`${styles.section} ${isTablet ? styles.mobileSection : ""}`}
     >
       <Container>
-        <Row>
-          <Col lg={4} md={12}>
+        <Row justify="center">
+          <Col xl={4} md={12} lg={12}>
             <h2>OUR LUCKY ROADMAP</h2>
           </Col>
-          <Col lg={8} md={12} className="scroller">
+          <Col xl={8} md={12} lg={9} className="scroller">
             {milestones.map((item) => {
               return (
                 <Milestone

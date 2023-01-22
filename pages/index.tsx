@@ -35,7 +35,7 @@ export default function Home() {
   const [swiper, setSwiper] = useState<SwiperEvent>();
   const isPhone = useMediaQuery({ query: "(max-width: 580px)" });
   const isTablet = useMediaQuery({ query: "(max-width: 1180px)" });
-  const isLaptop = useMediaQuery({ query: "(min-width: 1181px)" });
+  const isLaptop = useMediaQuery({ query: "(max-width: 1370px)" });
 
   useEffect(() => {
     if (swiper) {
@@ -60,10 +60,10 @@ export default function Home() {
     if (hasVerticalScrollbar) {
       swiper.mousewheel.disable();
       swiper.allowTouchMove = false;
-      activeSlide.addEventListener("wheel", preventScroll);
-      setTimeout(() => {
-        activeSlide.removeEventListener("wheel", preventScroll);
-      }, 400);
+      // activeSlide.addEventListener("wheel", preventScroll);
+      // setTimeout(() => {
+      //   activeSlide.removeEventListener("wheel", preventScroll);
+      // }, 400);
       activeSlide.addEventListener("scroll", () => {
         setScrollTop(activeSlide.scrollTop);
 
@@ -80,6 +80,34 @@ export default function Home() {
     }
   };
   const [domLoaded, setDomLoaded] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      const steps = gsap.utils.toArray(".panel");
+
+      steps.forEach((box: any, i) => {
+        const anim = gsap.fromTo(
+          box,
+          {
+            autoAlpha: 0,
+            y: 20,
+          },
+          {
+            y: 0,
+            autoAlpha: 1,
+            duration: 0.8,
+            ease: "power3.out",
+          }
+        );
+        ScrollTrigger.create({
+          trigger: box,
+          animation: anim,
+          start: "top 60%",
+          end: "bottom 0%",
+          toggleActions: "play none restart reverse",
+        });
+      });
+    }, 0);
+  }, []);
 
   useEffect(() => {
     setDomLoaded(true);
@@ -95,7 +123,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link
           rel="apple-touch-icon"
-          sizes="180x180"
+          sizes="144x144"
           href="/favicon/apple-touch-icon.png"
         />
         <link
@@ -114,9 +142,14 @@ export default function Home() {
         <link
           rel="mask-icon"
           href="/favicon/safari-pinned-tab.svg"
-          color="#5bbad5"
+          color="#000000"
         />
+        <link rel="shortcut icon" href="/favicon/favicon.ico" />
         <meta name="msapplication-TileColor" content="#da532c" />
+        <meta
+          name="msapplication-config"
+          content="/favicon/browserconfig.xml"
+        />
         <meta name="theme-color" content="#000000" />
       </Head>
       <NextSeo
@@ -143,7 +176,7 @@ export default function Home() {
           >
             <div
               className={`${styles.scroll} ${
-                isTablet ? styles.mobileScroll : ""
+                isLaptop ? styles.mobileScroll : ""
               }`}
             >
               <ScrollIndicator
@@ -160,7 +193,7 @@ export default function Home() {
                   <Swiper
                     direction={"vertical"}
                     touchEventsTarget={"container"}
-                    speed={400}
+                    speed={800}
                     parallax={true}
                     autoplay={false}
                     mousewheel={{
