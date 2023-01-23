@@ -64,6 +64,7 @@ export default function Home() {
       // setTimeout(() => {
       //   activeSlide.removeEventListener("wheel", preventScroll);
       // }, 400);
+      activeSlide.scrollTop += 1;
       activeSlide.addEventListener("scroll", () => {
         setScrollTop(activeSlide.scrollTop);
 
